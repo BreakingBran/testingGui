@@ -25,6 +25,7 @@ public class Main extends Application {
 		primaryStage.setTitle("Banking System");
 		button = new Button();
 		button.setText("Create New user");
+		
 		button.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event){
@@ -32,6 +33,8 @@ public class Main extends Application {
 			}
 		});
 
+		//Below statement does exactly what above statement does but only allowed in java 8
+		//button.setOnAction(e -> System.out.println("I exist"));
 		StackPane layout = new StackPane();
 		layout.getChildren().add(button);
 
