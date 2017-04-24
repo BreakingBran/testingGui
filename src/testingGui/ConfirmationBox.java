@@ -1,0 +1,62 @@
+package testingGui;
+import javafx.stage.*;
+import javafx.scene.*;
+import javafx.scene.layout.*;
+import javafx.scene.control.*;
+import javafx.geometry.*;
+
+public class ConfirmationBox {
+
+	static boolean sendNudes;
+	
+	public static boolean display(String tittle,String message)
+	{
+		Stage window = new Stage();
+		window.initModality(Modality.APPLICATION_MODAL);
+		window.setTitle(tittle);
+		window.setMinWidth(200);
+		window.setMinHeight(200);		
+		Label label = new Label();
+		label.setText(message);
+		
+		
+		Button yesButton = new Button("Yes");
+		Button noButton = new Button("No");
+		
+		yesButton.setOnAction(e -> {
+			sendNudes = true;
+			window.close();
+		});
+		
+		noButton.setOnAction(e -> {
+			sendNudes = false;
+			window.close();
+		});
+		
+		VBox layout = new VBox(10);
+		layout.getChildren().addAll(label, yesButton, noButton);
+		layout.setAlignment(Pos.CENTER);
+		
+		Scene scene = new Scene(layout);
+		window.setScene(scene);
+		window.showAndWait();
+		
+		return sendNudes;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
